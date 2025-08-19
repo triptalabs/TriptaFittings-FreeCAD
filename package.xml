@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
+    <name>TriptaFittings</name>
+    <description>Generador automático de modelos paramétricos de Ferrule y Gasket para FreeCAD. Basado en estándares DIN 32676 A.</description>
+    <version>1.0.0</version>
+    <date>2025-01-27</date>
+    <url>https://github.com/triptalabs/TriptaFittings-FreeCAD</url>
+    <author>triptalabs</author>
+    <maintainer>triptalabs</maintainer>
+    <email>info@triptalabs.com</email>
+    <license>MIT</license>
+    <icon>resources/icons/TriptaFittings.svg</icon>
+    <classname>TriptaFittingsWorkbench</classname>
+    <subdirectory>TriptaFittings</subdirectory>
+    <file>package.xml</file>
+    <file>__init__.py</file>
+    <file>InitGui.py</file>
+    <file>TriptaFittingsGui.py</file>
+    <file>TriptaFittingsCmd.py</file>
+    <file>models/__init__.py</file>
+    <file>models/data_manager.py</file>
+    <file>models/ferrule_generator.py</file>
+    <file>models/gasket_generator.py</file>
+    <file>data/__init__.py</file>
+    <file>data/preset.py</file>
+    <file>data/csv_loader.py</file>
+    <file>data/presets_ferrule_din32676A_1p5_to_12in.csv</file>
+    <file>data/Presets_Gasket_DIN_32676_A__1_5_12_in_.csv</file>
+    <file>README.md</file>
+    <file>LICENSE</file>
+    <file>docs/roadmap.md</file>
+    <tag>parametric</tag>
+    <tag>mechanical</tag>
+    <tag>piping</tag>
+    <tag>fittings</tag>
+    <tag>ferrule</tag>
+    <tag>gasket</tag>
+    <tag>din32676</tag>
+    <content>workbench</content>
+    <python_min>3.8</python_min>
+    <freecad_min>0.20</freecad_min>
+    <freecad_max>0.22</freecad_max>
+</package>

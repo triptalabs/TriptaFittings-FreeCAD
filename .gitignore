@@ -1,0 +1,213 @@
+# TriptaFittings-FreeCAD .gitignore
+
+# ===== ARCHIVOS TEMPORALES Y DE DESARROLLO =====
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+
+# ===== ARCHIVOS DE PYTHON =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ===== ENTORNOS VIRTUALES =====
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# ===== ARCHIVOS DE IDE Y EDITORES =====
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.atom/
+.brackets.json
+
+# ===== ARCHIVOS DE SISTEMA =====
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===== ARCHIVOS DE LOGS =====
+*.log
+logs/
+log/
+
+# ===== ARCHIVOS DE CONFIGURACIÓN LOCAL =====
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===== ARCHIVOS DE FREECAD =====
+*.FCBak
+*.FCStd1
+*.FCStd2
+*.FCStd3
+*.FCStd4
+*.FCStd5
+*.FCStd6
+*.FCStd7
+*.FCStd8
+*.FCStd9
+*.FCStd10
+
+# ===== ARCHIVOS DE TESTING =====
+.coverage
+.pytest_cache/
+.tox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# ===== ARCHIVOS DE DOCUMENTACIÓN GENERADA =====
+docs/_build/
+docs/build/
+site/
+
+# ===== ARCHIVOS DE DEPLOYMENT =====
+*.zip
+*.tar.gz
+*.rar
+
+# ===== ARCHIVOS DE DATOS TEMPORALES =====
+*.csv.tmp
+*.json.tmp
+*.xml.tmp
+
+# ===== ARCHIVOS DE BACKUP DE CONFIGURACIÓN =====
+config.backup
+settings.backup
+
+# ===== ARCHIVOS DE DESARROLLO ESPECÍFICOS =====
+# Archivos de desarrollo local que no deben subirse
+local_config.py
+debug_settings.py
+test_data/
+
+# ===== ARCHIVOS DE ICONOS TEMPORALES =====
+*.ico.tmp
+*.svg.tmp
+*.png.tmp
+
+# ===== ARCHIVOS DE FREECAD ESPECÍFICOS =====
+# Archivos de configuración local de FreeCAD
+FreeCAD.cfg
+user.cfg
+system.cfg
+
+# ===== ARCHIVOS DE GIT =====
+# Mantener archivos de git pero ignorar configuraciones locales
+.git/config.local
+.git/credentials
+
+# ===== ARCHIVOS DE WINDOWS ESPECÍFICOS =====
+# Archivos de Windows que pueden aparecer
+*.lnk
+*.url
+*.pif
+
+# ===== ARCHIVOS DE MAC ESPECÍFICOS =====
+# Archivos de macOS que pueden aparecer
+.AppleDouble
+.LSOverride
+Icon?
+
+# ===== ARCHIVOS DE LINUX ESPECÍFICOS =====
+# Archivos de Linux que pueden aparecer
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===== ARCHIVOS DE DESARROLLO DE PLUGIN =====
+# Archivos específicos del desarrollo del plugin
+plugin_debug.log
+freecad_plugin.log
+test_output/
+debug_output/
+
+# ===== ARCHIVOS DE COMPILACIÓN =====
+# Archivos compilados que pueden generarse
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+*.dylib
+
+# ===== ARCHIVOS DE DATOS DE PRUEBA =====
+# Datos de prueba que no deben incluirse en el repositorio
+test_models/
+sample_output/
+example_output/
+
+# ===== ARCHIVOS DE CONFIGURACIÓN DE IDEAS =====
+# Archivos de configuración de IDEs que pueden aparecer
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/shelf/
+
+# ===== ARCHIVOS DE DEPENDENCIAS =====
+# Dependencias que se instalan localmente
+node_modules/
+bower_components/
+
+# ===== ARCHIVOS DE BUILD =====
+# Archivos generados durante el build
+build/
+dist/
+*.egg-info/
+
+# ===== ARCHIVOS DE DOCUMENTACIÓN TEMPORAL =====
+# Documentación temporal generada
+docs/temp/
+docs/draft/
+*.md.tmp
+
+# ===== ARCHIVOS DE CONFIGURACIÓN DE ENTORNO =====
+# Configuraciones de entorno específicas
+.env.development
+.env.test
+.env.production
