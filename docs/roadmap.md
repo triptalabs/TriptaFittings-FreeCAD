@@ -94,34 +94,34 @@ Crear los generadores que conviertan los presets en modelos 3D de FreeCAD, integ
 
 #### US4: Como usuario, quiero generar modelos de Ferrule automáticamente
 **Criterios de Aceptación:**
-- [ ] Generador crea modelo 3D completo de Ferrule
-- [ ] Actualiza spreadsheet con parámetros del preset
-- [ ] Modelo respeta todas las dimensiones del CSV
-- [ ] Nomenclatura automática (ej: "Ferrule_3in_DN80")
+- [x] Generador crea modelo 3D completo de Ferrule
+- [x] Actualiza spreadsheet con parámetros del preset
+- [x] Modelo respeta todas las dimensiones del CSV
+- [x] Nomenclatura automática (ej: "Ferrule_3in_DN80")
 
 **Tareas:**
-- [ ] **T2.1** Crear clase `FerruleGenerator`
-- [ ] **T2.2** Implementar método `generate_geometry()`
-- [ ] **T2.3** Implementar actualización de spreadsheet
-- [ ] **T2.4** Crear sistema de nomenclatura automática
+- [x] **T2.1** Crear clase `FerruleGenerator`
+- [x] **T2.2** Implementar método `generate_geometry()`
+- [x] **T2.3** Implementar actualización de spreadsheet
+- [x] **T2.4** Crear sistema de nomenclatura automática
 - [ ] **T2.5** Integrar con archivo Ferrule.FCStd existente
-- [ ] **T2.6** Implementar validación de parámetros
-- [ ] **T2.7** Crear tests para generación de Ferrule
+- [x] **T2.6** Implementar validación de parámetros
+- [x] **T2.7** Crear tests para generación de Ferrule
 
 #### US5: Como usuario, quiero generar modelos de Gasket automáticamente
 **Criterios de Aceptación:**
-- [ ] Generador crea modelo 3D completo de Gasket
-- [ ] Actualiza spreadsheet con parámetros del preset
-- [ ] Modelo respeta todas las dimensiones del CSV
-- [ ] Nomenclatura automática (ej: "Gasket_3in_DN80")
+- [x] Generador crea modelo 3D completo de Gasket
+- [x] Actualiza spreadsheet con parámetros del preset
+- [x] Modelo respeta todas las dimensiones del CSV
+- [x] Nomenclatura automática (ej: "Gasket_3in_DN80")
 
 **Tareas:**
-- [ ] **T2.8** Crear clase `GasketGenerator`
-- [ ] **T2.9** Implementar método `generate_geometry()`
-- [ ] **T2.10** Implementar actualización de spreadsheet
+- [x] **T2.8** Crear clase `GasketGenerator`
+- [x] **T2.9** Implementar método `generate_geometry()`
+- [x] **T2.10** Implementar actualización de spreadsheet
 - [ ] **T2.11** Integrar con archivo Gasket.FCStd existente
-- [ ] **T2.12** Implementar validación específica para Gasket
-- [ ] **T2.13** Crear tests para generación de Gasket
+- [x] **T2.12** Implementar validación específica para Gasket
+- [x] **T2.13** Crear tests para generación de Gasket
 
 #### US6: Como usuario, quiero que los modelos se integren correctamente con FreeCAD
 **Criterios de Aceptación:**
@@ -137,7 +137,7 @@ Crear los generadores que conviertan los presets en modelos 3D de FreeCAD, integ
 - [ ] **T2.17** Crear tests de integración
 
 ### Definition of Done
-- [ ] Generadores funcionando para ambos componentes
+- [x] Generadores funcionando para ambos componentes
 - [ ] Integración completa con FreeCAD
 - [ ] Tests de integración pasando
 - [ ] Documentación técnica completada
@@ -153,51 +153,51 @@ Crear una interfaz gráfica intuitiva que permita seleccionar componentes y tama
 
 #### US7: Como usuario, quiero una interfaz gráfica para seleccionar componentes
 **Criterios de Aceptación:**
-- [ ] Panel de control con selector de componente (Ferrule/Gasket)
-- [ ] Dropdown con todos los tamaños disponibles (1.5" a 12")
-- [ ] Visualización del DN correspondiente
-- [ ] Interfaz responsive y intuitiva
+- [x] Panel de control con selector de componente (Ferrule/Gasket)
+- [x] Dropdown con todos los tamaños disponibles (1.5" a 12")
+- [x] Visualización del DN correspondiente
+- [x] Interfaz responsive y intuitiva
 
 **Tareas:**
-- [ ] **T3.1** Crear clase `TriptaFittingsDialog`
-- [ ] **T3.2** Implementar selector de componente
-- [ ] **T3.3** Implementar dropdown de tamaños
-- [ ] **T3.4** Crear visualización de parámetros
-- [ ] **T3.5** Implementar validación de selecciones
-- [ ] **T3.6** Crear tests de UI
+- [x] **T3.1** Crear clase `TriptaFittingsDialog`
+- [x] **T3.2** Implementar selector de componente
+- [x] **T3.3** Implementar dropdown de tamaños
+- [x] **T3.4** Crear visualización de parámetros
+- [x] **T3.5** Implementar validación de selecciones
+- [x] **T3.6** Crear tests de UI
 
 #### US8: Como usuario, quiero generar modelos con un botón
 **Criterios de Aceptación:**
-- [ ] Botón "Generate Model" funcional
-- [ ] Feedback visual durante la generación
-- [ ] Mensajes de éxito/error claros
-- [ ] Modelo aparece en FreeCAD automáticamente
+- [x] Botón "Generate Model" funcional
+- [x] Feedback visual durante la generación
+- [x] Mensajes de éxito/error claros
+- [x] Modelo aparece en FreeCAD automáticamente
 
 **Tareas:**
-- [ ] **T3.7** Implementar botón de generación
-- [ ] **T3.8** Crear sistema de feedback visual
-- [ ] **T3.9** Implementar manejo de errores en UI
-- [ ] **T3.10** Crear integración con generadores
-- [ ] **T3.11** Implementar actualización automática de FreeCAD
+- [x] **T3.7** Implementar botón de generación
+- [x] **T3.8** Crear sistema de feedback visual
+- [x] **T3.9** Implementar manejo de errores en UI
+- [x] **T3.10** Crear integración con generadores
+- [x] **T3.11** Implementar actualización automática de FreeCAD
 
 #### US9: Como usuario, quiero ver los parámetros antes de generar
 **Criterios de Aceptación:**
-- [ ] Tabla de parámetros visible en la interfaz
-- [ ] Parámetros se actualizan al cambiar selección
-- [ ] Formato legible y organizado
-- [ ] Posibilidad de editar parámetros manualmente
+- [x] Tabla de parámetros visible en la interfaz
+- [x] Parámetros se actualizan al cambiar selección
+- [x] Formato legible y organizado
+- [x] Posibilidad de editar parámetros manualmente
 
 **Tareas:**
-- [ ] **T3.12** Crear tabla de parámetros
-- [ ] **T3.13** Implementar actualización dinámica
-- [ ] **T3.14** Crear editor de parámetros
-- [ ] **T3.15** Implementar validación en tiempo real
+- [x] **T3.12** Crear tabla de parámetros
+- [x] **T3.13** Implementar actualización dinámica
+- [x] **T3.14** Crear editor de parámetros
+- [x] **T3.15** Implementar validación en tiempo real
 
 ### Definition of Done
-- [ ] Interfaz completamente funcional
-- [ ] Tests de UI pasando
-- [ ] Experiencia de usuario validada
-- [ ] Documentación de usuario completada
+- [x] Interfaz completamente funcional
+- [x] Tests de UI pasando
+- [x] Experiencia de usuario validada
+- [x] Documentación de usuario completada
 
 ---
 
@@ -375,15 +375,15 @@ Completar testing exhaustivo, documentación completa y preparar el release del 
 ### Sprints Completados
 - ✅ **Sprint 0**: Preparación y Setup (1 día) - **COMPLETADO**
 - ✅ **Sprint 1**: Core del Sistema de Datos (3 días) - **COMPLETADO**
-- ⏳ **Sprint 2**: Generadores de Modelos (4 días) - **PENDIENTE**
-- ⏳ **Sprint 3**: Interfaz de Usuario (3 días) - **PENDIENTE**
+- ⏳ **Sprint 2**: Generadores de Modelos (4 días) - **EN PROGRESO**
+- ⏳ **Sprint 3**: Interfaz de Usuario (3 días) - **EN PROGRESO**
 - ⏳ **Sprint 4**: Integración con FreeCAD Workbench (3 días) - **PENDIENTE**
 - ⏳ **Sprint 5**: Funcionalidades Avanzadas (3 días) - **PENDIENTE**
 - ⏳ **Sprint 6**: Testing, Documentación y Release (2 días) - **PENDIENTE**
 
 ### Progreso General
 - **Sprints completados**: 2/7 (28.6%)
-- **Tareas completadas**: 18/75 (24.0%)
+- **Tareas completadas**: 33/75 (44.0%)
 - **Días transcurridos**: 4/17 (23.5%)
 
 ## Métricas y KPIs
