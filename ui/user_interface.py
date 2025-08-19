@@ -12,6 +12,7 @@ from typing import Any, Dict, List, Optional
 from models.data_manager import DataManager
 from models.ferrule_generator import FerruleGenerator
 from models.gasket_generator import GasketGenerator
+from .model_manager import ModelManager
 
 
 class UserInterface:
@@ -25,6 +26,8 @@ class UserInterface:
 
     def __init__(self, data_directory: Optional[str] = None) -> None:
         self._manager = DataManager(data_directory)
+        # Gestor de modelos generados en la sesión
+        self._models = ModelManager()
         # Cargar todos los datos al inicializar la interfaz.
         self._manager.load_all_data()
 
@@ -68,4 +71,20 @@ class UserInterface:
         else:  # pragma: no cover - validación redundante
             raise ValueError(f"Tipo de componente inválido: {component}")
 
-        return generator.generate_geometry()
+        model = generator.generate_geometry()
+        # Registrar modelo generado para su gestión posterior
+        self._models.add_model(model)
+        return model
+
+    # --- Gestión de modelos -------------------------------------------------
+    def list_generated_models(self, component: str | None = None) -> List[Dict[str, Any]]:
+        """Retorna los modelos generados en la sesión actual."""
+        return self._models.list_models(component)
+
+    def remove_model(self, name: str) -> bool:
+        """Elimina un modelo por nombre."""
+        return self._models.remove_model(name)
+
+    def clear_models(self, component: str | None = None) -> None:
+        """Elimina todos los modelos o solo los del componente indicado."""
+        self._models.clear(component)

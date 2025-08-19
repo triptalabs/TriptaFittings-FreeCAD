@@ -14,6 +14,7 @@ Generador automático de modelos paramétricos de **Ferrule (Férula)** y **Gask
 - ✅ **Integración nativa** con FreeCAD
 - ✅ **Spreadsheets automáticas** con parámetros
 - ✅ **Exportación** a formatos estándar (STEP, IGES, STL)
+- ✅ **Gestión básica** de modelos generados en sesión
 
 ## 📋 Requisitos
 
