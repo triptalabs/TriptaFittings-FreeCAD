@@ -23,6 +23,11 @@ from models.data_manager import DataManager
 from data.preset import Preset
 
 
+class Sprint1TestError(Exception):
+    """Errores específicos de las pruebas del Sprint 1"""
+    pass
+
+
 def test_sprint1_complete():
     """Test completo del Sprint 1 con datos reales"""
     print("🚀 Iniciando validación del Sprint 1: Core del Sistema de Datos")
@@ -34,8 +39,7 @@ def test_sprint1_complete():
         data_manager = DataManager()
         print("✅ DataManager inicializado correctamente")
     except Exception as e:
-        print(f"❌ Error al inicializar DataManager: {e}")
-        return False
+        raise Sprint1TestError(f"Error al inicializar DataManager: {e}")
     
     # 2. Test validación de integridad de datos
     print("\n🔍 2. Validando integridad de datos CSV...")
@@ -52,29 +56,26 @@ def test_sprint1_complete():
             print(f"   Presets cargados: {result['presets_count']}")
         
         # Verificar que ambos componentes son válidos
-        if not (integrity_results['ferrule']['valid'] and integrity_results['gasket']['valid']):
-            print("❌ Algunos archivos CSV tienen errores")
-            return False
+        assert (
+            integrity_results['ferrule']['valid']
+            and integrity_results['gasket']['valid']
+        ), "Algunos archivos CSV tienen errores"
         
         print("✅ Validación de integridad completada")
         
     except Exception as e:
-        print(f"❌ Error en validación de integridad: {e}")
-        return False
+        raise Sprint1TestError(f"Error en validación de integridad: {e}")
     
     # 3. Test carga de todos los datos
     print("\n📥 3. Cargando todos los datos...")
     try:
         success = data_manager.load_all_data()
-        if not success:
-            print("❌ Error al cargar datos")
-            return False
+        assert success, "Error al cargar datos"
         
         print("✅ Datos cargados exitosamente")
         
     except Exception as e:
-        print(f"❌ Error al cargar datos: {e}")
-        return False
+        raise Sprint1TestError(f"Error al cargar datos: {e}")
     
     # 4. Test resumen de datos
     print("\n📊 4. Obteniendo resumen de datos...")
@@ -97,8 +98,7 @@ def test_sprint1_complete():
         print("✅ Resumen obtenido correctamente")
         
     except Exception as e:
-        print(f"❌ Error al obtener resumen: {e}")
-        return False
+        raise Sprint1TestError(f"Error al obtener resumen: {e}")
     
     # 5. Test búsquedas por tamaño
     print("\n🔍 5. Probando búsquedas por tamaño...")
@@ -114,7 +114,9 @@ def test_sprint1_complete():
                 print(f"      ✅ Ferrule encontrado: {ferrule.get_name()}")
                 print(f"         DN: {ferrule.dn}, FlangeOD: {ferrule.flange_od_mm}mm")
             else:
-                print(f"      ❌ Ferrule no encontrado para tamaño {size}\"")
+                raise AssertionError(
+                    f"Ferrule no encontrado para tamaño {size}\""
+                )
             
             # Buscar Gasket
             gasket = data_manager.get_preset_by_size('gasket', size)
@@ -122,13 +124,14 @@ def test_sprint1_complete():
                 print(f"      ✅ Gasket encontrado: {gasket.get_name()}")
                 print(f"         DN: {gasket.dn}, GasketOD: {gasket.gasket_od_mm}mm")
             else:
-                print(f"      ❌ Gasket no encontrado para tamaño {size}\"")
+                raise AssertionError(
+                    f"Gasket no encontrado para tamaño {size}\""
+                )
         
         print("✅ Búsquedas por tamaño completadas")
         
     except Exception as e:
-        print(f"❌ Error en búsquedas por tamaño: {e}")
-        return False
+        raise Sprint1TestError(f"Error en búsquedas por tamaño: {e}")
     
     # 6. Test búsquedas por DN
     print("\n🔍 6. Probando búsquedas por DN...")
@@ -143,20 +146,19 @@ def test_sprint1_complete():
             if ferrule:
                 print(f"      ✅ Ferrule encontrado: {ferrule.get_name()}")
             else:
-                print(f"      ❌ Ferrule no encontrado para DN {dn}")
+                raise AssertionError(f"Ferrule no encontrado para DN {dn}")
             
             # Buscar Gasket
             gasket = data_manager.get_preset_by_dn('gasket', dn)
             if gasket:
                 print(f"      ✅ Gasket encontrado: {gasket.get_name()}")
             else:
-                print(f"      ❌ Gasket no encontrado para DN {dn}")
+                raise AssertionError(f"Gasket no encontrado para DN {dn}")
         
         print("✅ Búsquedas por DN completadas")
         
     except Exception as e:
-        print(f"❌ Error en búsquedas por DN: {e}")
-        return False
+        raise Sprint1TestError(f"Error en búsquedas por DN: {e}")
     
     # 7. Test presets compatibles
     print("\n🔗 7. Probando presets compatibles...")
@@ -173,15 +175,16 @@ def test_sprint1_complete():
             if ferrule.is_compatible_with(gasket):
                 print(f"      ✅ Compatibilidad verificada")
             else:
-                print(f"      ❌ Error: Los presets no son compatibles")
+                raise AssertionError("Los presets no son compatibles")
         else:
-            print(f"   ⚠️  No se encontraron presets compatibles para {test_size}\"")
+            raise AssertionError(
+                f"No se encontraron presets compatibles para {test_size}\""
+            )
         
         print("✅ Test de compatibilidad completado")
         
     except Exception as e:
-        print(f"❌ Error en test de compatibilidad: {e}")
-        return False
+        raise Sprint1TestError(f"Error en test de compatibilidad: {e}")
     
     # 8. Test parámetros de presets
     print("\n📋 8. Probando parámetros de presets...")
@@ -193,26 +196,22 @@ def test_sprint1_complete():
             print(f"   📊 Parámetros de {ferrule.get_name()}:")
             for key, value in params.items():
                 print(f"      {key}: {value}")
-        
+            assert params, "No se obtuvieron parámetros del preset"
+
         print("✅ Parámetros obtenidos correctamente")
-        
+
     except Exception as e:
-        print(f"❌ Error al obtener parámetros: {e}")
-        return False
+        raise Sprint1TestError(f"Error al obtener parámetros: {e}")
     
     # 9. Test recarga de datos
     print("\n🔄 9. Probando recarga de datos...")
     try:
         success = data_manager.reload_data()
-        if success:
-            print("✅ Recarga de datos exitosa")
-        else:
-            print("❌ Error en recarga de datos")
-            return False
+        assert success, "Error en recarga de datos"
+        print("✅ Recarga de datos exitosa")
         
     except Exception as e:
-        print(f"❌ Error en recarga: {e}")
-        return False
+        raise Sprint1TestError(f"Error en recarga: {e}")
     
     print("\n" + "=" * 60)
     print("🎉 ¡Sprint 1 completado exitosamente!")
@@ -221,8 +220,6 @@ def test_sprint1_complete():
     print("✅ Las búsquedas por tamaño y DN funcionan")
     print("✅ Los presets son compatibles entre sí")
     print("✅ El sistema está listo para el Sprint 2")
-    
-    return True
 
 
 def main():
@@ -230,18 +227,18 @@ def main():
     print("TriptaFittings - Validación Sprint 1")
     print("Core del Sistema de Datos")
     print("=" * 60)
-    
-    success = test_sprint1_complete()
-    
-    if success:
-        print("\n🎯 Próximos pasos:")
-        print("   - Sprint 2: Generadores de Modelos")
-        print("   - Sprint 3: Interfaz de Usuario")
-        print("   - Sprint 4: Integración con FreeCAD")
-        sys.exit(0)
-    else:
-        print("\n❌ Validación fallida. Revisar errores antes de continuar.")
+
+    try:
+        test_sprint1_complete()
+    except (Sprint1TestError, AssertionError) as e:
+        print(f"\n❌ Validación fallida. {e}")
         sys.exit(1)
+
+    print("\n🎯 Próximos pasos:")
+    print("   - Sprint 2: Generadores de Modelos")
+    print("   - Sprint 3: Interfaz de Usuario")
+    print("   - Sprint 4: Integración con FreeCAD")
+    sys.exit(0)
 
 
 if __name__ == "__main__":
