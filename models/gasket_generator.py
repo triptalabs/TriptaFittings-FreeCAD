@@ -37,6 +37,7 @@ class GasketGenerator:
         return {
             "name": self.preset.get_name(),
             "parameters": self.preset.get_parameters_dict(),
+            "component": "gasket",
         }
 
     def update_spreadsheet(self, spreadsheet: Dict[str, Any]) -> None:
