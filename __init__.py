@@ -24,8 +24,8 @@ except ImportError as e:
     print(f"Error al importar módulos de FreeCAD: {e}")
 
 # Importaciones del plugin
-from . import models
-from . import data
+import models
+import data
 
 def get_version():
     """Retorna la versión actual del plugin"""

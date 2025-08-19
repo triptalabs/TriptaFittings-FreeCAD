@@ -308,8 +308,8 @@ class DataManager:
         self.logger.info("Recargando datos de presets")
         
         # Limpiar cache
-        self._ferrule_presets.clear()
-        self._gasket_presets.clear()
+        self._ferrule_presets = []
+        self._gasket_presets = []
         self._ferrule_by_size.clear()
         self._ferrule_by_dn.clear()
         self._gasket_by_size.clear()
