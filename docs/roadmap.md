@@ -94,34 +94,34 @@ Crear los generadores que conviertan los presets en modelos 3D de FreeCAD, integ
 
 #### US4: Como usuario, quiero generar modelos de Ferrule automáticamente
 **Criterios de Aceptación:**
-- [ ] Generador crea modelo 3D completo de Ferrule
-- [ ] Actualiza spreadsheet con parámetros del preset
-- [ ] Modelo respeta todas las dimensiones del CSV
-- [ ] Nomenclatura automática (ej: "Ferrule_3in_DN80")
+- [x] Generador crea modelo 3D completo de Ferrule
+- [x] Actualiza spreadsheet con parámetros del preset
+- [x] Modelo respeta todas las dimensiones del CSV
+- [x] Nomenclatura automática (ej: "Ferrule_3in_DN80")
 
 **Tareas:**
-- [ ] **T2.1** Crear clase `FerruleGenerator`
-- [ ] **T2.2** Implementar método `generate_geometry()`
-- [ ] **T2.3** Implementar actualización de spreadsheet
-- [ ] **T2.4** Crear sistema de nomenclatura automática
+- [x] **T2.1** Crear clase `FerruleGenerator`
+- [x] **T2.2** Implementar método `generate_geometry()`
+- [x] **T2.3** Implementar actualización de spreadsheet
+- [x] **T2.4** Crear sistema de nomenclatura automática
 - [ ] **T2.5** Integrar con archivo Ferrule.FCStd existente
-- [ ] **T2.6** Implementar validación de parámetros
-- [ ] **T2.7** Crear tests para generación de Ferrule
+- [x] **T2.6** Implementar validación de parámetros
+- [x] **T2.7** Crear tests para generación de Ferrule
 
 #### US5: Como usuario, quiero generar modelos de Gasket automáticamente
 **Criterios de Aceptación:**
-- [ ] Generador crea modelo 3D completo de Gasket
-- [ ] Actualiza spreadsheet con parámetros del preset
-- [ ] Modelo respeta todas las dimensiones del CSV
-- [ ] Nomenclatura automática (ej: "Gasket_3in_DN80")
+- [x] Generador crea modelo 3D completo de Gasket
+- [x] Actualiza spreadsheet con parámetros del preset
+- [x] Modelo respeta todas las dimensiones del CSV
+- [x] Nomenclatura automática (ej: "Gasket_3in_DN80")
 
 **Tareas:**
-- [ ] **T2.8** Crear clase `GasketGenerator`
-- [ ] **T2.9** Implementar método `generate_geometry()`
-- [ ] **T2.10** Implementar actualización de spreadsheet
+- [x] **T2.8** Crear clase `GasketGenerator`
+- [x] **T2.9** Implementar método `generate_geometry()`
+- [x] **T2.10** Implementar actualización de spreadsheet
 - [ ] **T2.11** Integrar con archivo Gasket.FCStd existente
-- [ ] **T2.12** Implementar validación específica para Gasket
-- [ ] **T2.13** Crear tests para generación de Gasket
+- [x] **T2.12** Implementar validación específica para Gasket
+- [x] **T2.13** Crear tests para generación de Gasket
 
 #### US6: Como usuario, quiero que los modelos se integren correctamente con FreeCAD
 **Criterios de Aceptación:**
@@ -137,7 +137,7 @@ Crear los generadores que conviertan los presets en modelos 3D de FreeCAD, integ
 - [ ] **T2.17** Crear tests de integración
 
 ### Definition of Done
-- [ ] Generadores funcionando para ambos componentes
+- [x] Generadores funcionando para ambos componentes
 - [ ] Integración completa con FreeCAD
 - [ ] Tests de integración pasando
 - [ ] Documentación técnica completada
