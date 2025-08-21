@@ -9,10 +9,10 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-from models.data_manager import DataManager
-from models.ferrule_generator import FerruleGenerator
-from models.gasket_generator import GasketGenerator
-from .model_manager import ModelManager
+from ..core.data_manager import DataManager
+from ..generators.ferrule import FerruleGenerator
+from ..generators.gasket import GasketGenerator
+from ..core.model_manager import ModelManager
 
 
 class UserInterface:

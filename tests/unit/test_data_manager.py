@@ -11,10 +11,10 @@ import tempfile
 import shutil
 
 # Agregar el directorio raíz al path para importar módulos
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..', 'src'))
 
-from models.data_manager import DataManager
-from data.preset import Preset
+from triptafittings.core.data_manager import DataManager
+from triptafittings.data.preset import Preset
 
 
 class TestDataManager(unittest.TestCase):

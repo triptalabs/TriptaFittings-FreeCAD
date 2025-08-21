@@ -4,15 +4,16 @@ import os
 import sys
 
 # Asegurar que la ruta raíz esté en ``sys.path`` para las importaciones
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..', 'src'))
 
-import InitGui
-import TriptaFittingsCmd
-import TriptaFittingsGui
+from src.triptafittings.workbench.init_gui import TriptaFittingsWorkbench
+from src.triptafittings.workbench import commands as TriptaFittingsCmd
+from src.triptafittings.workbench import gui as TriptaFittingsGui
 
 
 def test_workbench_initialization():
-    wb = InitGui.TriptaFittingsWorkbench()
+    wb = TriptaFittingsWorkbench()
     cmds = wb.Initialize()
     assert "Tripta_CreateFerrule" in cmds
     assert "Tripta_CreateGasket" in cmds

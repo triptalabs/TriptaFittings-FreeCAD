@@ -1,7 +1,12 @@
 import json
+import sys
+import os
 from pathlib import Path
 
-from config.config_manager import ConfigurationManager
+# Añadir src al path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..', 'src'))
+
+from triptafittings.core.config import ConfigurationManager
 
 
 def test_loads_default_config_and_creates_file(tmp_path):

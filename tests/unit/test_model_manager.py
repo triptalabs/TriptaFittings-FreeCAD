@@ -4,9 +4,9 @@ import os
 import sys
 
 # Añadir ruta raíz para importaciones
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..', 'src'))
 
-from ui.user_interface import UserInterface
+from triptafittings.ui.interface import UserInterface
 
 
 def test_model_management_flow():

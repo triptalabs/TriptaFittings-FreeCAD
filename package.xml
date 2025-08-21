@@ -2,30 +2,38 @@
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
     <name>TriptaFittings</name>
     <description>Generador automático de modelos paramétricos de Ferrule y Gasket para FreeCAD. Basado en estándares DIN 32676 A.</description>
-    <version>1.0.0</version>
-    <date>2025-01-27</date>
+    <version>0.1.1</version>
+    <date>2025-01-21</date>
     <url>https://github.com/triptalabs/TriptaFittings-FreeCAD</url>
     <author>triptalabs</author>
     <maintainer>triptalabs</maintainer>
     <email>info@triptalabs.com</email>
     <license>MIT</license>
-    <icon>resources/icons/TriptaFittings.svg</icon>
+    <icon>resources/icons/triptafittings.svg</icon>
     <classname>TriptaFittingsWorkbench</classname>
     <subdirectory>TriptaFittings</subdirectory>
     <file>package.xml</file>
     <file>__init__.py</file>
     <file>InitGui.py</file>
-    <file>TriptaFittingsGui.py</file>
-    <file>TriptaFittingsCmd.py</file>
-    <file>models/__init__.py</file>
-    <file>models/data_manager.py</file>
-    <file>models/ferrule_generator.py</file>
-    <file>models/gasket_generator.py</file>
-    <file>data/__init__.py</file>
-    <file>data/preset.py</file>
-    <file>data/csv_loader.py</file>
-    <file>data/presets_ferrule_din32676A_1p5_to_12in.csv</file>
-    <file>data/Presets_Gasket_DIN_32676_A__1_5_12_in_.csv</file>
+    <file>src/triptafittings/__init__.py</file>
+    <file>src/triptafittings/workbench/__init__.py</file>
+    <file>src/triptafittings/workbench/init_gui.py</file>
+    <file>src/triptafittings/workbench/gui.py</file>
+    <file>src/triptafittings/workbench/commands.py</file>
+    <file>src/triptafittings/core/__init__.py</file>
+    <file>src/triptafittings/core/data_manager.py</file>
+    <file>src/triptafittings/core/config.py</file>
+    <file>src/triptafittings/core/model_manager.py</file>
+    <file>src/triptafittings/generators/__init__.py</file>
+    <file>src/triptafittings/generators/ferrule.py</file>
+    <file>src/triptafittings/generators/gasket.py</file>
+    <file>src/triptafittings/data/__init__.py</file>
+    <file>src/triptafittings/data/preset.py</file>
+    <file>src/triptafittings/data/csv_loader.py</file>
+    <file>src/triptafittings/data/presets/ferrule_din32676A_1p5_to_12in.csv</file>
+    <file>src/triptafittings/data/presets/gasket_din32676A_1p5_to_12in.csv</file>
+    <file>src/triptafittings/ui/__init__.py</file>
+    <file>src/triptafittings/ui/interface.py</file>
     <file>README.md</file>
     <file>LICENSE</file>
     <file>docs/roadmap.md</file>

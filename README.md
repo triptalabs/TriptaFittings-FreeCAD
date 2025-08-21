@@ -34,7 +34,7 @@ cd TriptaFittings-FreeCAD
 
 2. **Probar el sistema**:
 ```bash
-python scripts/run_all_tests.py
+python tools/run_tests.py
 ```
 
 3. **Instalar FreeCAD** (opcional para funcionalidades completas):
@@ -73,17 +73,16 @@ git clone https://github.com/triptalabs/TriptaFittings-FreeCAD.git
 
 ```bash
 # Ejecutar todas las pruebas
-python scripts/run_all_tests.py
+python tools/run_tests.py
 
 # Demo automático de funcionalidades
-python scripts/demos/demo_automatic.py
+python examples/basic_usage.py
 
 # Demo interactivo
-python scripts/demos/demo_interactive.py
+python examples/interactive_demo.py
 
-# Pruebas individuales
-python scripts/testing/test_basic.py
-python scripts/testing/check_freecad.py
+# Diagnóstico del sistema
+python tools/diagnose_plugin.py
 ```
 
 ### Generar un Modelo (FreeCAD)
@@ -96,7 +95,7 @@ python scripts/testing/check_freecad.py
 ### Explorar Datos
 
 ```python
-from models.data_manager import DataManager
+from src.triptafittings.core.data_manager import DataManager
 
 # Crear gestor de datos
 dm = DataManager()
@@ -141,44 +140,55 @@ gasket_presets = dm.get_presets_by_type('gasket')
 
 ```
 TriptaFittings-FreeCAD/
-├── __init__.py                    # Plugin principal
-├── InitGui.py                     # Inicialización del workbench
-├── TriptaFittingsGui.py           # Interfaz gráfica
-├── TriptaFittingsCmd.py           # Comandos
-├── models/                        # Generadores de modelos
-│   ├── __init__.py
-│   ├── data_manager.py
-│   ├── ferrule_generator.py
-│   └── gasket_generator.py
-├── data/                          # Datos y presets
-│   ├── __init__.py
-│   ├── preset.py
-│   ├── csv_loader.py
-│   └── *.csv
-├── scripts/                       # Scripts de prueba y demo
-│   ├── README.md                  # Documentación de scripts
-│   ├── run_all_tests.py          # Script principal de pruebas
-│   ├── testing/                   # Scripts de prueba
-│   │   ├── test_basic.py
-│   │   ├── test_freecad_integration.py
-│   │   └── check_freecad.py
-│   └── demos/                     # Scripts de demostración
-│       ├── demo_automatic.py
-│       └── demo_interactive.py
-├── docs/                          # Documentación completa
-│   ├── README.md                  # Índice de documentación
-│   ├── roadmap.md                 # Hoja de ruta del proyecto
-│   ├── installation/              # Guías de instalación
-│   │   ├── install_guide.md
-│   │   └── install_freecad_windows.md
-│   └── usage/                     # Guías de uso (futuras)
-│       └── README.md
-├── resources/                     # Recursos (iconos, etc.)
-├── FreeCADfiles/                 # Archivos de ejemplo
-├── tmp/                          # Archivos temporales (ignorado por git)
-├── package.xml                   # Metadatos del plugin
-├── .gitignore                   # Archivos ignorados por git
-└── README.md
+├── 📁 src/                          # Código fuente principal
+│   └── triptafittings/
+│       ├── workbench/               # Workbench FreeCAD
+│       │   ├── init_gui.py          # Inicialización del workbench
+│       │   ├── commands.py          # Comandos
+│       │   └── gui.py               # Interfaz gráfica
+│       ├── core/                    # Lógica principal
+│       │   ├── config.py            # Configuración
+│       │   ├── data_manager.py      # Gestión de datos
+│       │   └── model_manager.py     # Gestión de modelos
+│       ├── generators/              # Generadores de modelos
+│       │   ├── ferrule.py          # Generador de férulas
+│       │   └── gasket.py           # Generador de juntas
+│       ├── data/                    # Datos y presets
+│       │   ├── preset.py
+│       │   ├── csv_loader.py
+│       │   └── presets/
+│       │       ├── ferrule_din32676A_1p5_to_12in.csv
+│       │       └── gasket_din32676A_1p5_to_12in.csv
+│       └── ui/                      # Interfaz de usuario
+│           └── interface.py         # Interfaz principal
+├── 📁 tests/                        # Tests unificados
+│   ├── unit/                        # Tests unitarios
+│   ├── integration/                 # Tests de integración
+│   └── fixtures/                    # Datos de prueba
+├── 📁 examples/                     # Ejemplos y demos
+│   ├── basic_usage.py
+│   ├── interactive_demo.py
+│   └── freecad_files/
+├── 📁 docs/                         # Documentación organizada
+│   ├── README.md                    # Índice de documentación
+│   ├── installation.md             # Guía de instalación
+│   ├── usage.md                     # Guía de uso
+│   ├── development.md               # Guía de desarrollo
+│   └── installation/                # Documentación detallada
+├── 📁 tools/                        # Herramientas de desarrollo
+│   ├── install_plugin.py
+│   ├── run_tests.py
+│   ├── diagnose_plugin.py
+│   └── activate_plugin.py
+├── 📁 resources/                    # Recursos del plugin
+│   └── icons/
+│       └── triptafittings.svg
+├── 📄 __init__.py                   # Plugin principal
+├── 📄 InitGui.py                    # Entrada para FreeCAD
+├── 📄 package.xml                   # Metadatos del plugin
+├── 📄 setup.py                      # Instalación con pip
+├── 📄 README.md                     # Este archivo
+└── 📄 LICENSE
 ```
 
 ### Contribuir

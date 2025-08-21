@@ -9,9 +9,9 @@ import sys
 import os
 
 # Agregar el directorio raíz al path para importar módulos
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..', 'src'))
 
-from data.preset import Preset
+from triptafittings.data.preset import Preset
 
 
 class TestPreset(unittest.TestCase):
