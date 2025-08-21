@@ -114,7 +114,7 @@ gasket = data_manager.get_preset_by_dn('gasket', 'DN80')
 
 **Características:**
 - ✅ Búsquedas O(1) con índices hash
-- ✅ Soporte para tamaño y DN
+- ✅ Documentación para tamaño y DN
 - ✅ Manejo de casos no encontrados
 - ✅ Validación de tipos de componente
 
@@ -284,7 +284,7 @@ except Exception as e:
 
 3. **Nuevos Estándares**
    ```python
-   # Soporte para múltiples estándares
+   # Documentación para múltiples estándares
    class Preset:
        def __init__(self, component_type, data, standard='DIN 32676 A'):
    ```

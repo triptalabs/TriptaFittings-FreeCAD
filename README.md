@@ -24,6 +24,22 @@ Generador automático de modelos paramétricos de **Ferrule (Férula)** y **Gask
 
 ## 🚀 Instalación
 
+### Inicio Rápido
+
+1. **Clonar el repositorio**:
+```bash
+git clone https://github.com/triptalabs/TriptaFittings-FreeCAD.git
+cd TriptaFittings-FreeCAD
+```
+
+2. **Probar el sistema**:
+```bash
+python scripts/run_all_tests.py
+```
+
+3. **Instalar FreeCAD** (opcional para funcionalidades completas):
+   - Ver [Guía de Instalación de FreeCAD](docs/installation/install_freecad_windows.md)
+
 ### Método 1: Addon Manager (Recomendado)
 
 1. Abrir FreeCAD
@@ -45,14 +61,55 @@ git clone https://github.com/triptalabs/TriptaFittings-FreeCAD.git
 
 3. Reiniciar FreeCAD
 
+### Documentación Completa
+
+- **[Guía de Instalación](docs/installation/install_guide.md)**: Instrucciones detalladas
+- **[Instalación de FreeCAD](docs/installation/install_freecad_windows.md)**: Guía específica para Windows
+- **[Documentación General](docs/README.md)**: Índice completo de documentación
+
 ## 🎮 Uso
 
-### Generar un Modelo
+### Pruebas y Demos
+
+```bash
+# Ejecutar todas las pruebas
+python scripts/run_all_tests.py
+
+# Demo automático de funcionalidades
+python scripts/demos/demo_automatic.py
+
+# Demo interactivo
+python scripts/demos/demo_interactive.py
+
+# Pruebas individuales
+python scripts/testing/test_basic.py
+python scripts/testing/check_freecad.py
+```
+
+### Generar un Modelo (FreeCAD)
 
 1. **Activar el Workbench**: View → Workbenches → TriptaFittings
 2. **Seleccionar Componente**: Ferrule o Gasket
 3. **Elegir Tamaño**: 1.5", 2", 2.5", 3", 4", 6", 8", 10", 12"
 4. **Hacer clic en "Generate Model"**
+
+### Explorar Datos
+
+```python
+from models.data_manager import DataManager
+
+# Crear gestor de datos
+dm = DataManager()
+dm.load_all_data()
+
+# Obtener tamaños disponibles
+sizes = dm.get_available_sizes()
+print(f"Tamaños: {sizes}")
+
+# Obtener presets
+ferrule_presets = dm.get_presets_by_type('ferrule')
+gasket_presets = dm.get_presets_by_type('gasket')
+```
 
 ### Parámetros Disponibles
 
@@ -84,26 +141,43 @@ git clone https://github.com/triptalabs/TriptaFittings-FreeCAD.git
 
 ```
 TriptaFittings-FreeCAD/
-├── __init__.py             # Plugin principal
-├── InitGui.py              # Inicialización del workbench
-├── TriptaFittingsGui.py    # Interfaz gráfica
-├── TriptaFittingsCmd.py    # Comandos
-├── models/                 # Generadores de modelos
+├── __init__.py                    # Plugin principal
+├── InitGui.py                     # Inicialización del workbench
+├── TriptaFittingsGui.py           # Interfaz gráfica
+├── TriptaFittingsCmd.py           # Comandos
+├── models/                        # Generadores de modelos
 │   ├── __init__.py
 │   ├── data_manager.py
 │   ├── ferrule_generator.py
 │   └── gasket_generator.py
-├── data/                   # Datos y presets
+├── data/                          # Datos y presets
 │   ├── __init__.py
 │   ├── preset.py
 │   ├── csv_loader.py
 │   └── *.csv
-├── resources/              # Recursos (iconos, etc.)
-├── docs/                   # Documentación
-├── FreeCADfiles/          # Archivos de ejemplo
-├── tmp/                   # Archivos temporales (ignorado por git)
-├── package.xml            # Metadatos del plugin
-├── .gitignore            # Archivos ignorados por git
+├── scripts/                       # Scripts de prueba y demo
+│   ├── README.md                  # Documentación de scripts
+│   ├── run_all_tests.py          # Script principal de pruebas
+│   ├── testing/                   # Scripts de prueba
+│   │   ├── test_basic.py
+│   │   ├── test_freecad_integration.py
+│   │   └── check_freecad.py
+│   └── demos/                     # Scripts de demostración
+│       ├── demo_automatic.py
+│       └── demo_interactive.py
+├── docs/                          # Documentación completa
+│   ├── README.md                  # Índice de documentación
+│   ├── roadmap.md                 # Hoja de ruta del proyecto
+│   ├── installation/              # Guías de instalación
+│   │   ├── install_guide.md
+│   │   └── install_freecad_windows.md
+│   └── usage/                     # Guías de uso (futuras)
+│       └── README.md
+├── resources/                     # Recursos (iconos, etc.)
+├── FreeCADfiles/                 # Archivos de ejemplo
+├── tmp/                          # Archivos temporales (ignorado por git)
+├── package.xml                   # Metadatos del plugin
+├── .gitignore                   # Archivos ignorados por git
 └── README.md
 ```
 
@@ -119,17 +193,11 @@ TriptaFittings-FreeCAD/
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## 🤝 Soporte
+## 📖 Documentación
 
 - **Issues**: [GitHub Issues](https://github.com/triptalabs/TriptaFittings-FreeCAD/issues)
 - **Discusiones**: [GitHub Discussions](https://github.com/triptalabs/TriptaFittings-FreeCAD/discussions)
 - **Email**: info@triptalabs.com
-
-## 🙏 Agradecimientos
-
-- **FreeCAD Community**: Por el excelente software base
-- **DIN Standards**: Por los estándares industriales
-- **Contribuidores**: Por sus valiosas contribuciones
 
 ---
 
