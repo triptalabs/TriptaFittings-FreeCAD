@@ -30,7 +30,7 @@ except ImportError:
         def generate_model(self, component, size):
             return {"name": f"{component}_{size}in", "status": "demo"}
 
-from .gui import WB_ICON
+from .gui import WB_ICON, get_command_icon
 
 
 class _BaseCreateCommand:
@@ -89,10 +89,11 @@ class _BaseCreateCommand:
     def GetResources(self) -> Dict[str, str]:
         """Recursos gráficos y metadatos del comando."""
         name = self.component.capitalize()
+        command_name = f"Tripta_Create{name}"
         return {
             "MenuText": f"Create {name}",
             "ToolTip": f"Abre el diálogo para generar un modelo de {name}",
-            "Pixmap": WB_ICON,
+            "Pixmap": get_command_icon(command_name),
         }
 
 
@@ -143,7 +144,7 @@ class OpenTriptaFittingsDialogCommand:
         return {
             "MenuText": "TriptaFittings Generator",
             "ToolTip": "Abre el generador principal de TriptaFittings",
-            "Pixmap": WB_ICON,
+            "Pixmap": get_command_icon("Tripta_OpenDialog"),
         }
 
 
