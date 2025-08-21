@@ -9,7 +9,15 @@ from __future__ import annotations
 
 from typing import Dict, Any
 
-from ui.user_interface import UserInterface
+try:
+    from ui.user_interface import UserInterface
+except ImportError:
+    # Fallback para cuando ui no está disponible
+    class UserInterface:
+        def __init__(self):
+            pass
+        def generate_model(self, component, size):
+            return {"name": f"{component}_{size}in", "status": "demo"}
 from TriptaFittingsGui import WB_ICON
 
 

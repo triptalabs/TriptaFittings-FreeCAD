@@ -85,8 +85,8 @@ def demo_preset_details():
             example = ferrule_presets[0]
             print(f"EJEMPLO - Ferrule {example.size}:")
             print(f"   DN: {example.dn}")
-            print(f"   PassageDia: {example.passage_dia}")
-            print(f"   TubeID: {example.tube_id}")
+            print(f"   PassageDia: {example.passage_dia_mm}")
+            print(f"   TubeID: {example.tube_id_mm}")
             
         return True
     except Exception as e:
@@ -168,8 +168,8 @@ def demo_search_functionality():
         
         # Búsqueda por DN
         dn = "DN50"
-        ferrule_dn = dm.get_preset_by_dn_and_type(dn, 'ferrule')
-        gasket_dn = dm.get_preset_by_dn_and_type(dn, 'gasket')
+        ferrule_dn = dm.get_preset_by_dn('ferrule', dn)
+        gasket_dn = dm.get_preset_by_dn('gasket', dn)
         
         if ferrule_dn and gasket_dn:
             print(f"SUCCESS: Encontrados presets para {dn}")

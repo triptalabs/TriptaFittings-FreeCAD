@@ -164,3 +164,33 @@ class Preset:
         return (self.size == other.size and 
                 self.dn == other.dn and 
                 self.standard == other.standard)
+    
+    def is_valid(self) -> bool:
+        """
+        Verifica si el preset es válido
+        
+        Returns:
+            True si el preset tiene datos válidos
+        """
+        # Verificar campos básicos
+        if not self.size or self.size <= 0:
+            return False
+        
+        if not self.dn:
+            return False
+        
+        if not self.standard:
+            return False
+        
+        # Verificar campos específicos según el tipo
+        if self.component_type == 'ferrule':
+            return (hasattr(self, 'flange_od_mm') and self.flange_od_mm > 0 and
+                    hasattr(self, 'tube_id_mm') and self.tube_id_mm > 0 and
+                    hasattr(self, 'passage_dia_mm') and self.passage_dia_mm > 0)
+        
+        elif self.component_type == 'gasket':
+            return (hasattr(self, 'flange_od_mm') and self.flange_od_mm > 0 and
+                    hasattr(self, 'gasket_od_mm') and self.gasket_od_mm > 0 and
+                    hasattr(self, 'gasket_id_mm') and self.gasket_id_mm > 0)
+        
+        return False

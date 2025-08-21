@@ -319,3 +319,50 @@ class DataManager:
         
         # Recargar
         return self.load_all_data()
+    
+    def get_presets_by_type(self, component_type: str) -> List[Preset]:
+        """
+        Retorna todos los presets de un tipo específico
+        
+        Args:
+            component_type: Tipo de componente ('ferrule' o 'gasket')
+            
+        Returns:
+            Lista de presets del tipo especificado
+        """
+        if not self._loaded:
+            self.logger.warning("Datos no cargados. Llamando a load_all_data()")
+            if not self.load_all_data():
+                return []
+        
+        if component_type.lower() == 'ferrule':
+            return self._ferrule_presets.copy()
+        elif component_type.lower() == 'gasket':
+            return self._gasket_presets.copy()
+        else:
+            self.logger.error(f"Tipo de componente inválido: {component_type}")
+            return []
+    
+    def get_preset_by_size_and_type(self, size: float, component_type: str) -> Optional[Preset]:
+        """
+        Retorna un preset específico por tamaño y tipo
+        
+        Args:
+            size: Tamaño en pulgadas
+            component_type: Tipo de componente ('ferrule' o 'gasket')
+            
+        Returns:
+            Preset correspondiente o None si no se encuentra
+        """
+        if not self._loaded:
+            self.logger.warning("Datos no cargados. Llamando a load_all_data()")
+            if not self.load_all_data():
+                return None
+        
+        if component_type.lower() == 'ferrule':
+            return self._ferrule_by_size.get(size)
+        elif component_type.lower() == 'gasket':
+            return self._gasket_by_size.get(size)
+        else:
+            self.logger.error(f"Tipo de componente inválido: {component_type}")
+            return None

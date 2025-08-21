@@ -49,5 +49,17 @@ class TriptaFittingsWorkbench:
         return "Gui::PythonWorkbench"
 
 
-# Normalmente FreeCAD invocaría Gui.addWorkbench(TriptaFittingsWorkbench())
-# pero se omite para evitar dependencias durante las pruebas.
+# Registrar el workbench con FreeCAD
+try:
+    import FreeCAD
+    import FreeCADGui as Gui
+    
+    # Registrar el workbench
+    Gui.addWorkbench(TriptaFittingsWorkbench())
+    print("✅ TriptaFittings workbench registrado correctamente")
+    
+except ImportError:
+    # FreeCAD no está disponible (para pruebas)
+    pass
+except Exception as e:
+    print(f"❌ Error al registrar workbench: {e}")
