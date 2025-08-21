@@ -19,7 +19,8 @@ WB_ICON = os.path.join(MODULE_DIR, "resources", "triptafittings.svg")
 
 # Comandos que se mostrarán tanto en la toolbar como en el menú
 TOOLBAR_COMMANDS: List[str] = [
-    "Tripta_CreateFerrule",
+    "Tripta_OpenDialog",
+    "Tripta_CreateFerrule", 
     "Tripta_CreateGasket",
 ]
 

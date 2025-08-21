@@ -43,9 +43,9 @@ class CSVLoader:
         # Configurar logging
         self.logger = logging.getLogger(__name__)
         
-        # Archivos CSV esperados
-        self.ferrule_csv = "presets_ferrule_din32676A_1p5_to_12in.csv"
-        self.gasket_csv = "Presets_Gasket_DIN_32676_A__1_5_12_in_.csv"
+        # Archivos CSV esperados (en subdirectorio presets)
+        self.ferrule_csv = "presets/ferrule_din32676A_1p5_to_12in.csv"
+        self.gasket_csv = "presets/gasket_din32676A_1p5_to_12in.csv"
     
     def load_ferrule_data(self) -> List[Preset]:
         """
